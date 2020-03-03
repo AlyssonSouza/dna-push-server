@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.integration.angeloni.com.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="customers" targetNamespace="http://ws.integration.angeloni.com.br/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://186.251.38.90:7010/angeloni-bcc/customers?xsd=1" namespace="http://ws.integration.angeloni.com.br/" />
+    </xsd:schema>
+  </types>
+  <message name="getUserPassword">
+    <part name="parameters" element="tns:getUserPassword" />
+  </message>
+  <message name="getUserPasswordResponse">
+    <part name="parameters" element="tns:getUserPasswordResponse" />
+  </message>
+  <message name="ResultMessageErrorInfo">
+    <part name="fault" element="tns:ResultMessageErrorInfo" />
+  </message>
+  <message name="getProfileType">
+    <part name="parameters" element="tns:getProfileType" />
+  </message>
+  <message name="getProfileTypeResponse">
+    <part name="parameters" element="tns:getProfileTypeResponse" />
+  </message>
+  <message name="getProfilePartnerGroups">
+    <part name="parameters" element="tns:getProfilePartnerGroups" />
+  </message>
+  <message name="getProfilePartnerGroupsResponse">
+    <part name="parameters" element="tns:getProfilePartnerGroupsResponse" />
+  </message>
+  <message name="removeProfilePartnerGroup">
+    <part name="parameters" element="tns:removeProfilePartnerGroup" />
+  </message>
+  <message name="removeProfilePartnerGroupResponse">
+    <part name="parameters" element="tns:removeProfilePartnerGroupResponse" />
+  </message>
+  <message name="addProfilePartnerGroup">
+    <part name="parameters" element="tns:addProfilePartnerGroup" />
+  </message>
+  <message name="addProfilePartnerGroupResponse">
+    <part name="parameters" element="tns:addProfilePartnerGroupResponse" />
+  </message>
+  <message name="listAllProfilesByPartnerGroup">
+    <part name="parameters" element="tns:listAllProfilesByPartnerGroup" />
+  </message>
+  <message name="listAllProfilesByPartnerGroupResponse">
+    <part name="parameters" element="tns:listAllProfilesByPartnerGroupResponse" />
+  </message>
+  <message name="getByLastUpdateDate">
+    <part name="parameters" element="tns:getByLastUpdateDate" />
+  </message>
+  <message name="getByLastUpdateDateResponse">
+    <part name="parameters" element="tns:getByLastUpdateDateResponse" />
+  </message>
+  <message name="setUpdateCustomers">
+    <part name="parameters" element="tns:setUpdateCustomers" />
+  </message>
+  <message name="setUpdateCustomersResponse">
+    <part name="parameters" element="tns:setUpdateCustomersResponse" />
+  </message>
+  <message name="ResultItemErrorInfo">
+    <part name="fault" element="tns:ResultItemErrorInfo" />
+  </message>
+  <message name="updatePassword">
+    <part name="parameters" element="tns:updatePassword" />
+  </message>
+  <message name="updatePasswordResponse">
+    <part name="parameters" element="tns:updatePasswordResponse" />
+  </message>
+  <message name="getCustomer">
+    <part name="parameters" element="tns:getCustomer" />
+  </message>
+  <message name="getCustomerResponse">
+    <part name="parameters" element="tns:getCustomerResponse" />
+  </message>
+  <message name="removeProfileType">
+    <part name="parameters" element="tns:removeProfileType" />
+  </message>
+  <message name="removeProfileTypeResponse">
+    <part name="parameters" element="tns:removeProfileTypeResponse" />
+  </message>
+  <message name="addProfileType">
+    <part name="parameters" element="tns:addProfileType" />
+  </message>
+  <message name="addProfileTypeResponse">
+    <part name="parameters" element="tns:addProfileTypeResponse" />
+  </message>
+  <message name="listAllProfilesByType">
+    <part name="parameters" element="tns:listAllProfilesByType" />
+  </message>
+  <message name="listAllProfilesByTypeResponse">
+    <part name="parameters" element="tns:listAllProfilesByTypeResponse" />
+  </message>
+  <message name="validateUser">
+    <part name="parameters" element="tns:validateUser" />
+  </message>
+  <message name="validateUserResponse">
+    <part name="parameters" element="tns:validateUserResponse" />
+  </message>
+  <portType name="Customers">
+    <operation name="getUserPassword">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/getUserPasswordRequest" message="tns:getUserPassword" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/getUserPasswordResponse" message="tns:getUserPasswordResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/getUserPassword/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="getProfileType">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/getProfileTypeRequest" message="tns:getProfileType" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/getProfileTypeResponse" message="tns:getProfileTypeResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/getProfileType/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="getProfilePartnerGroups">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/getProfilePartnerGroupsRequest" message="tns:getProfilePartnerGroups" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/getProfilePartnerGroupsResponse" message="tns:getProfilePartnerGroupsResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/getProfilePartnerGroups/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="removeProfilePartnerGroup">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/removeProfilePartnerGroupRequest" message="tns:removeProfilePartnerGroup" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/removeProfilePartnerGroupResponse" message="tns:removeProfilePartnerGroupResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/removeProfilePartnerGroup/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="addProfilePartnerGroup">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/addProfilePartnerGroupRequest" message="tns:addProfilePartnerGroup" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/addProfilePartnerGroupResponse" message="tns:addProfilePartnerGroupResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/addProfilePartnerGroup/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="listAllProfilesByPartnerGroup">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/listAllProfilesByPartnerGroupRequest" message="tns:listAllProfilesByPartnerGroup" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/listAllProfilesByPartnerGroupResponse" message="tns:listAllProfilesByPartnerGroupResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/listAllProfilesByPartnerGroup/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="getByLastUpdateDate">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/getByLastUpdateDateRequest" message="tns:getByLastUpdateDate" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/getByLastUpdateDateResponse" message="tns:getByLastUpdateDateResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/getByLastUpdateDate/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="setUpdateCustomers">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/setUpdateCustomersRequest" message="tns:setUpdateCustomers" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/setUpdateCustomersResponse" message="tns:setUpdateCustomersResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/setUpdateCustomers/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/setUpdateCustomers/Fault/ResultItemErrorInfo" name="ResultItemErrorInfo" message="tns:ResultItemErrorInfo" />
+    </operation>
+    <operation name="updatePassword">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/updatePasswordRequest" message="tns:updatePassword" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/updatePasswordResponse" message="tns:updatePasswordResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/updatePassword/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/updatePassword/Fault/ResultItemErrorInfo" name="ResultItemErrorInfo" message="tns:ResultItemErrorInfo" />
+    </operation>
+    <operation name="getCustomer">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/getCustomerRequest" message="tns:getCustomer" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/getCustomerResponse" message="tns:getCustomerResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/getCustomer/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="removeProfileType">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/removeProfileTypeRequest" message="tns:removeProfileType" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/removeProfileTypeResponse" message="tns:removeProfileTypeResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/removeProfileType/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="addProfileType">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/addProfileTypeRequest" message="tns:addProfileType" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/addProfileTypeResponse" message="tns:addProfileTypeResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/addProfileType/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="listAllProfilesByType">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/listAllProfilesByTypeRequest" message="tns:listAllProfilesByType" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/listAllProfilesByTypeResponse" message="tns:listAllProfilesByTypeResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/listAllProfilesByType/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+    <operation name="validateUser">
+      <input wsam:Action="http://ws.integration.angeloni.com.br/Customers/validateUserRequest" message="tns:validateUser" />
+      <output wsam:Action="http://ws.integration.angeloni.com.br/Customers/validateUserResponse" message="tns:validateUserResponse" />
+      <fault wsam:Action="http://ws.integration.angeloni.com.br/Customers/validateUser/Fault/ResultMessageErrorInfo" name="ResultMessageErrorInfo" message="tns:ResultMessageErrorInfo" />
+    </operation>
+  </portType>
+  <binding name="CustomersPortBinding" type="tns:Customers">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getUserPassword">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getProfileType">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getProfilePartnerGroups">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="removeProfilePartnerGroup">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="addProfilePartnerGroup">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="listAllProfilesByPartnerGroup">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getByLastUpdateDate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="setUpdateCustomers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+      <fault name="ResultItemErrorInfo">
+        <soap:fault use="literal" name="ResultItemErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updatePassword">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+      <fault name="ResultItemErrorInfo">
+        <soap:fault use="literal" name="ResultItemErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCustomer">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="removeProfileType">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="addProfileType">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="listAllProfilesByType">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+    <operation name="validateUser">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ResultMessageErrorInfo">
+        <soap:fault use="literal" name="ResultMessageErrorInfo" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="customers">
+    <port name="CustomersPort" binding="tns:CustomersPortBinding">
+      <soap:address location="http://186.251.38.90:7010/angeloni-bcc/customers" />
+    </port>
+  </service>
+</definitions>

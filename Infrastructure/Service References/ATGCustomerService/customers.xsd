@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:ns0="http://ws.integration.angeloni.com.br/" targetNamespace="http://ws.integration.angeloni.com.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="getCustomerResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="ns0:customerInfo" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="validateUser">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="document" type="xsd:string" />
+      <xsd:element minOccurs="0" name="password" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="removeProfileType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="login" type="xsd:string" />
+      <xsd:element minOccurs="0" name="typeToRemove" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getUserPasswordResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getUserPassword">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="document" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="removeProfileTypeResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="updatePasswordResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getProfileTypeResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addProfilePartnerGroup">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cpf" type="xsd:string" />
+      <xsd:element minOccurs="0" name="siteId" type="xsd:string" />
+      <xsd:element minOccurs="0" name="partnerGroupToAdd" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="setUpdateCustomersResponse" />
+  <xsd:complexType name="addProfileType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="login" type="xsd:string" />
+      <xsd:element minOccurs="0" name="typeToAdd" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getProfileType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="login" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addressInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="address" type="xsd:string" />
+      <xsd:element minOccurs="0" name="city" type="xsd:string" />
+      <xsd:element minOccurs="0" name="clubeAngeloni" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="complement" type="xsd:string" />
+      <xsd:element minOccurs="0" name="country" type="xsd:string" />
+      <xsd:element name="defaultAddress" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="firstName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="homeNumber" type="xsd:string" />
+      <xsd:element minOccurs="0" name="id" type="xsd:string" />
+      <xsd:element minOccurs="0" name="jobTitle" type="xsd:string" />
+      <xsd:element minOccurs="0" name="lastName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="neighborhood" type="xsd:string" />
+      <xsd:element minOccurs="0" name="phones" type="xsd:string" />
+      <xsd:element minOccurs="0" name="postalCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="reference" type="xsd:string" />
+      <xsd:element minOccurs="0" name="state" type="xsd:string" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+      <xsd:element minOccurs="0" name="updateAddressInClub" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getProfilePartnerGroups">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cpf" type="xsd:string" />
+      <xsd:element minOccurs="0" name="siteId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="listAllProfilesByPartnerGroupResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="removeProfilePartnerGroupResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ResultItemErrorInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="message" type="xsd:string" />
+      <xsd:element minOccurs="0" name="violations">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="entry">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" name="key" type="xsd:string" />
+                  <xsd:element minOccurs="0" name="value" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getByLastUpdateDateResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="ns0:customerInfo" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="listAllProfilesByTypeResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addProfilePartnerGroupResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="validateUserResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:customerInfo" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addProfileTypeResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="addresses" nillable="true" type="ns0:addressInfo" />
+      <xsd:element name="b2b" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="corporateName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="dateOfBirth" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="document" type="xsd:string" />
+      <xsd:element minOccurs="0" name="email" type="xsd:string" />
+      <xsd:element minOccurs="0" name="firstName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="gender" type="xsd:string" />
+      <xsd:element minOccurs="0" name="id" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ie" type="xsd:string" />
+      <xsd:element name="ignoreAddress" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="lastName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="lastProfileUpdate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="nickName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="password" type="xsd:string" />
+      <xsd:element minOccurs="0" name="primaryPhoneNumber" type="xsd:string" />
+      <xsd:element minOccurs="0" name="secundaryPhoneNumber" type="xsd:string" />
+      <xsd:element minOccurs="0" name="site" type="xsd:string" />
+      <xsd:element name="subscriptionMember" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+      <xsd:element name="userClube" type="xsd:boolean" />
+      <xsd:element name="userSuper" type="xsd:boolean" />
+      <xsd:element name="verifyWSLogin" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="listAllProfilesByType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="profileType" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="setUpdateCustomers">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="dataRequest" type="ns0:customerInfo" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getProfilePartnerGroupsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getCustomer">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="siteId" type="xsd:string" />
+      <xsd:element minOccurs="0" name="email" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cpf" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cnpj" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="updatePassword">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="userId" type="xsd:string" />
+      <xsd:element minOccurs="0" name="plainPassword" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getByLastUpdateDate">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="dataRequest" type="xsd:dateTime" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="listAllProfilesByPartnerGroup">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="partnerGroup" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ResultMessageErrorInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="message" type="xsd:string" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="removeProfilePartnerGroup">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cpf" type="xsd:string" />
+      <xsd:element minOccurs="0" name="siteId" type="xsd:string" />
+      <xsd:element minOccurs="0" name="partnerGroupToRemove" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getCustomerResponse" type="ns0:getCustomerResponse" />
+  <xsd:element name="validateUser" type="ns0:validateUser" />
+  <xsd:element name="removeProfileType" type="ns0:removeProfileType" />
+  <xsd:element name="getUserPasswordResponse" type="ns0:getUserPasswordResponse" />
+  <xsd:element name="getUserPassword" type="ns0:getUserPassword" />
+  <xsd:element name="removeProfileTypeResponse" type="ns0:removeProfileTypeResponse" />
+  <xsd:element name="updatePasswordResponse" type="ns0:updatePasswordResponse" />
+  <xsd:element name="getProfileTypeResponse" type="ns0:getProfileTypeResponse" />
+  <xsd:element name="addProfilePartnerGroup" type="ns0:addProfilePartnerGroup" />
+  <xsd:element name="setUpdateCustomersResponse" type="ns0:setUpdateCustomersResponse" />
+  <xsd:element name="addProfileType" type="ns0:addProfileType" />
+  <xsd:element name="getProfileType" type="ns0:getProfileType" />
+  <xsd:element name="getProfilePartnerGroups" type="ns0:getProfilePartnerGroups" />
+  <xsd:element name="listAllProfilesByPartnerGroupResponse" type="ns0:listAllProfilesByPartnerGroupResponse" />
+  <xsd:element name="removeProfilePartnerGroupResponse" type="ns0:removeProfilePartnerGroupResponse" />
+  <xsd:element name="ResultItemErrorInfo" type="ns0:ResultItemErrorInfo" />
+  <xsd:element name="getByLastUpdateDateResponse" type="ns0:getByLastUpdateDateResponse" />
+  <xsd:element name="listAllProfilesByTypeResponse" type="ns0:listAllProfilesByTypeResponse" />
+  <xsd:element name="addProfilePartnerGroupResponse" type="ns0:addProfilePartnerGroupResponse" />
+  <xsd:element name="validateUserResponse" type="ns0:validateUserResponse" />
+  <xsd:element name="addProfileTypeResponse" type="ns0:addProfileTypeResponse" />
+  <xsd:element name="listAllProfilesByType" type="ns0:listAllProfilesByType" />
+  <xsd:element name="setUpdateCustomers" type="ns0:setUpdateCustomers" />
+  <xsd:element name="getProfilePartnerGroupsResponse" type="ns0:getProfilePartnerGroupsResponse" />
+  <xsd:element name="getCustomer" type="ns0:getCustomer" />
+  <xsd:element name="updatePassword" type="ns0:updatePassword" />
+  <xsd:element name="getByLastUpdateDate" type="ns0:getByLastUpdateDate" />
+  <xsd:element name="listAllProfilesByPartnerGroup" type="ns0:listAllProfilesByPartnerGroup" />
+  <xsd:element name="ResultMessageErrorInfo" type="ns0:ResultMessageErrorInfo" />
+  <xsd:element name="removeProfilePartnerGroup" type="ns0:removeProfilePartnerGroup" />
+</xsd:schema>

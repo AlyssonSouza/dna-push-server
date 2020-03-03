@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:managerIntegracao" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:managerIntegracao" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:managerIntegracao">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="metodoIntegracaoGenericoRequest">
+    <wsdl:part name="str_xml" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="metodoIntegracaoGenericoResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="metodoConsultaIntegracaoGenericoRequest">
+    <wsdl:part name="str_xml" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="metodoConsultaIntegracaoGenericoResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="managerIntegracaoPortType">
+    <wsdl:operation name="metodoIntegracaoGenerico">
+      <documentation>&lt;b&gt;MÃ©todo genÃ©rico para troca de dados/integraÃ§Ã£o.&lt;/b&gt;
+
+&lt;b&gt;Para Maiores informaÃ§Ãµes:&lt;/b&gt;
+&lt;pre&gt;
+&amp;lt;?XML VERSION='1.0'?&amp;gt;
+&amp;lt;ZMI&amp;gt;
+    &amp;lt;HELP/&amp;gt;
+&amp;lt;/ZMI&amp;gt;&lt;/pre&gt;
+&lt;b&gt;Ou dÃºvidas a Classes e/ou Campos&lt;/b&gt;:
+&lt;pre&gt;
+&amp;lt;?XML VERSION='1.0'?&amp;gt;
+&amp;lt;ZMI&amp;gt;
+    &amp;lt;HELP CLASS='CLASS_NAME' FIELDNAME='FIELD_NAME'&amp;gt;
+&amp;lt;/ZMI&amp;gt;&lt;/pre&gt;
+
+Existe a possibilidade de ver uma versÃ£o HTML, mais interativa, que pode ser acessada por &lt;a href='manager_integracao.php5?interactive=s' class='class_link'&gt;aqui&lt;/a&gt;. (beta)</documentation>
+      <wsdl:input message="tns:metodoIntegracaoGenericoRequest" />
+      <wsdl:output message="tns:metodoIntegracaoGenericoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="metodoConsultaIntegracaoGenerico">
+      <documentation>&lt;b&gt;MÃ©todo genÃ©rico para consultar o andamento das integraÃ§Ãµes.&lt;/b&gt;</documentation>
+      <wsdl:input message="tns:metodoConsultaIntegracaoGenericoRequest" />
+      <wsdl:output message="tns:metodoConsultaIntegracaoGenericoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="managerIntegracaoBinding" type="tns:managerIntegracaoPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="metodoIntegracaoGenerico">
+      <soap:operation soapAction="urn:managerIntegracao#metodoIntegracaoGenerico" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:managerIntegracao" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:managerIntegracao" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="metodoConsultaIntegracaoGenerico">
+      <soap:operation soapAction="urn:managerIntegracao#metodoConsultaIntegracaoGenerico" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:managerIntegracao" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:managerIntegracao" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="managerIntegracao">
+    <wsdl:port name="managerIntegracaoPort" binding="tns:managerIntegracaoBinding">
+      <soap:address location="http://186.251.38.90/manager/manager_integracao.php5" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
