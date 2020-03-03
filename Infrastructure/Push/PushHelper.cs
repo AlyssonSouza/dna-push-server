@@ -84,7 +84,7 @@ namespace Infrastructure.Push
         /// <param name="push"></param>
         /// <param name="deviceLst"></param>
         /// <returns></returns>
-        public static bool SendPush(PushNotificationEntity push, List<DeviceEntity> deviceLst, string Client)
+        public static bool SendPush(PushNotificationEntity push, List<DeviceEntity> deviceLst, string Client, string Environment)
         {
             log = new Logger();
             bool messageSent = false;
@@ -97,7 +97,7 @@ namespace Infrastructure.Push
                 if (iosDeviceLst.Count > 0)
                 {
                     //start apns broker Android
-                    ApnsConfiguration apnsConfig = GetApnsConfiguration(Client);
+                    ApnsConfiguration apnsConfig = GetApnsConfiguration(Client, Environment);
                     var apnsBroker = new ApnsServiceBroker(apnsConfig);
                     apnsBroker.OnNotificationFailed += IoSNotificationFailed;
                     apnsBroker.OnNotificationSucceeded += IoSNotificationSucceeded;
@@ -399,12 +399,12 @@ namespace Infrastructure.Push
         /// <summary>
         /// check ios device token availability
         /// </summary>
-        public static void CheckIosDeviceTokenAvailability(string Client)
+        public static void CheckIosDeviceTokenAvailability(string Client, string Environment)
         {
             log = new Logger();
             try
             {
-                ApnsConfiguration config = GetApnsConfiguration(Client);
+                ApnsConfiguration config = GetApnsConfiguration(Client, Environment);
 
                 var feedback = new FeedbackService(config);
                 feedback.FeedbackReceived += VerifyIosAvailability;
@@ -436,48 +436,45 @@ namespace Infrastructure.Push
         /// get apple push notification configuration
         /// </summary>
         /// <returns>apns configuration</returns>
-        private static ApnsConfiguration GetApnsConfiguration(string Client)
+        private static ApnsConfiguration GetApnsConfiguration(string Client, string Environment)
         {
 
+            log = new Logger();
+            ApnsConfiguration config;
             string pushCertificate = string.Empty;
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+
             switch (Client) {
                 case "Hirota":
                     {
-                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + ConfigurationManager.AppSettings["AmbientServer"] + Client];
+                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + Environment + Client];
                         break;
                     }
                 case "Muffato":
                     {
-                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + ConfigurationManager.AppSettings["AmbientServer"] + Client];
+                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + Environment + Client];
                         break;
                     }
                 case "Wake Me Up":
                     {
-                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + ConfigurationManager.AppSettings["AmbientServer"] + Client];
+                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + Environment + Client];
                         break;
                     }
                 case "Dengo":
                     {
-                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + ConfigurationManager.AppSettings["AmbientServer"] + Client];
+                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + Environment + Client];
                         break;
                     }
                 case "Telhanorte":
                     {
-                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + ConfigurationManager.AppSettings["AmbientServer"] + Client];
+                        pushCertificate = ConfigurationManager.AppSettings["PushCertificate" + Environment + Client];
                         break;
                     }
             }
-
-            log = new Logger();
-            ApnsConfiguration config;
-
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-
             string p12File = Path.Combine(path, pushCertificate);
-
             string certPassword = ConfigurationManager.AppSettings["CertificatePassword"];
 
-            if (ConfigurationManager.AppSettings["AmbientServer"].Contains("Production"))
+            if (Environment.Equals("Production"))
                 config = new ApnsConfiguration(ApnsConfiguration.ApnsServerEnvironment.Production, p12File, certPassword);
             else
                 config = new ApnsConfiguration(ApnsConfiguration.ApnsServerEnvironment.Sandbox, p12File, certPassword);

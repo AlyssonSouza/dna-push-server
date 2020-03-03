@@ -23,8 +23,8 @@ namespace WebAPI.Controllers
         {
             try
             {
-                PushHelper.CheckIosDeviceTokenAvailability(send.Client);
-                return Ok(ReturnError(0, PushHelper.SendPush(send.Push, send.DeviceList, send.Client)));
+                PushHelper.CheckIosDeviceTokenAvailability(send.Client, send.Environment);
+                return Ok(ReturnError(0, PushHelper.SendPush(send.Push, send.DeviceList, send.Client, send.Environment)));
             }
             catch (ApplicationException ex)
             {

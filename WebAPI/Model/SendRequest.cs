@@ -11,5 +11,6 @@ namespace WebAPI.Model
         public List<DeviceEntity> DeviceList { get; set; }
         public PushNotificationEntity Push { get; set; }
         public string Client { get; set; }
+        public string Environment { get; set; }
     }
 }
